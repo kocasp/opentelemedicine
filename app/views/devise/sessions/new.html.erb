@@ -1,0 +1,33 @@
+<section class="sign-in-page">
+    <div class="container sign-in-page-bg mt-5 p-0">
+        <div class="row no-gutters">
+            <div class="col-md-6 text-center">
+                <div class="sign-in-detail text-white">
+                    <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid" alt="logo"></a>
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <div class="sign-in-from">
+                    <h1 class="mb-0">Zaloguj się</h1>
+                    <p>Podaj login i hasło aby dostać się do systemu IBLW.</p>
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'mt-4'}) do |f| %>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-0", placeholder: "Enter email" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-0" %>
+                        </div>
+                        <div class="d-inline-block w-100">
+                            <button type="submit" class="btn btn-primary float-right">Sign in</button>
+                        </div>
+                        <div class="sign-info">
+                            <%= render "devise/shared/links" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

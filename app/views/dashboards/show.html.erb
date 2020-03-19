@@ -1,0 +1,85 @@
+
+   <!-- Wrapper Start -->
+   <div class="wrapper">
+   <!-- Page Content  -->
+   <div id="content-page" class="content-page">
+      <!-- TOP Nav Bar -->
+      <%= render partial: 'shared/top_navbar' %>
+      <!-- TOP Nav Bar END -->
+      <div class="container-fluid">
+         <div class="row">
+           <div class="col-sm-12">
+              <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                <div class="iq-card-header d-flex justify-content-between">
+                   <div class="iq-header-title">
+                      <h4 class="card-title">Zgłoszenia przypisane do Twojej specjalizacji</h4>
+                   </div>
+                </div>
+                <div class="iq-card-body">
+                  <div class="d-inline-block text-center w-100">
+                     <p>Aktualnie brak zgłoszeń przypisanych do Twojej specjalizacji</p>
+                  </div>
+                </div>
+              </div>
+             </div>
+             <div class="col-sm-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                  <div class="iq-card-header d-flex justify-content-between">
+                     <div class="iq-header-title">
+                        <h4 class="card-title">Zgłoszenia nieprzypisane do specjalizacji</h4>
+                     </div>
+                  </div>
+                  <div class="iq-card-body">
+                     <div class="table-responsive">
+                        <table class="table mb-0 table-borderless">
+                           <thead>
+                              <tr>
+                                 <th scope="col">Pacjent</th>
+                                 <th scope="col" style="width: 65%">Zgłoszenie</th>
+                                 <th scope="col">Data zgłoszenia</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                             <% @unassigned_cases.each do |c| %>
+                              <tr class="case-row">
+                                 <td>
+                                   <%= image_tag c.patient.sex == 'm' ? "user/09.jpg" : "user/1.jpg", class: "rounded-circle img-fluid avatar-40" %>
+                                   <span style="white-space:nowrap"><%= c.patient.full_name %></span>
+                                 </td>
+                                 <td>
+                                   <%= link_to case_path(c) do %>
+                                    <p style="font-size: 12px; color: #a09e9e">
+                                      <%= c.description %>
+                                    </p>
+                                   <% end %>
+                                 </td>
+                                 <td><%= c.created_at.to_date %></td>
+                              </tr>
+                             <% end %>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                </div>
+             </div>
+         </div>
+      </div>
+      <!-- Footer -->
+         <footer class="bg-white iq-footer">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-6">
+                     <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-lg-6 text-right">
+                     Copyright 2020 <a href="#">XRay</a> All Rights Reserved.
+                  </div>
+               </div>
+            </div>
+         </footer>
+         <!-- Footer END -->
+   </div>
+</div>

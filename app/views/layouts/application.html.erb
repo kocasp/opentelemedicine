@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IBLW.pl Internetowa Baza Lekarzy Wolontariuszy</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
+  <body>
+    <% if alert.present? %>
+    <div class="alert alert-danger" role="alert">
+      <div class="iq-alert-icon">
+         <i class="ri-information-line"></i>
+      </div>
+      <div class="iq-alert-text"><%= alert %></div>
+     </div>
+     <% end %>
+    <%= yield %>
+  </body>
+</html>

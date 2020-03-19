@@ -1,0 +1,32 @@
+<%= form_with model: patient_case, local: true do |form| %>
+  <% if patient_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient_case.errors.count, "error") %> prohibited this patient_case from being saved:</h2>
+
+      <ul>
+      <% patient_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solution %>
+    <%= form.text_area :solution %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specialist_type %>
+    <%= form.text_field :specialist_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

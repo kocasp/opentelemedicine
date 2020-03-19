@@ -1,0 +1,202 @@
+
+ <!-- Wrapper Start -->
+ <div class="wrapper">
+ <!-- Page Content  -->
+ <div id="content-page" class="content-page">
+    <!-- TOP Nav Bar -->
+    <%= render partial: 'shared/top_navbar' %>
+    <!-- TOP Nav Bar END -->
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-lg-4 row m-0 p-0">
+             <div class="col-sm-12">
+             <div class="iq-card iq-card-block iq-card-stretch iq-user-profile-block">
+                <div class="iq-card-body">
+                   <div class="user-details-block">
+                      <div class="user-profile text-center">
+                         <%= image_tag @case.patient.sex == 'm' ? "user/09.jpg" : "user/15.jpg", class: 'rounded-circle img-fluid'%>
+                      </div>
+                      <div class="text-center mt-3">
+                         <h4><b><%= @case.patient.full_name %></b></h4>
+                         <p><%= ((Time.zone.now - @case.patient.dob.to_time) / 1.year.seconds).floor %> lat</p>
+                      </div>
+                      <ul class="doctoe-sedual d-flex align-items-center justify-content-between p-0 mt-4 mb-0">
+                        <li class="text-center">
+                           <h6 class="text-primary">Płeć</h6>
+                           <h3><%= @case.patient.sex.capitalize %></h3>
+                        </li>
+                         <li class="text-center">
+                            <h6 class="text-primary">Waga</h6>
+                            <h3><%= @case.patient.weight %><span>kg</span></h3>
+                         </li>
+                         <li class="text-center">
+                            <h6 class="text-primary">Wzrost</h6>
+                            <h3><%= @case.patient.height %><span>cm</span></h3>
+                         </li>
+                      </ul>
+                   </div>
+                   <hr/>
+                    <div class="patient-steps">
+                       <div class="d-flex align-items-center justify-content-between">
+                          <div class="col-md-12">
+                            <div class="data-block">
+                               <p class="mb-0">Pesel</p>
+                               <h5><%= @case.patient.pesel %></h5>
+                            </div>
+                            <div class="data-block">
+                               <p class="mb-0">Telefon</p>
+                               <h5><%= @case.patient.phone %></h5>
+                            </div>
+                             <div class="data-block mt-3">
+                                <p class="mb-0">Choroby przewlekłe</p>
+                                <h5><%= @case.patient.chronic_diseases %></h5>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                </div>
+             </div>
+           </div>
+          </div>
+          <div class="col-lg-8">
+             <div class="iq-card iq-card-block iq-card-stretch">
+                <div class="iq-card-body pb-0">
+                   <div class="row">
+                      <div class="col-sm-12">
+                         <div class="iq-card">
+                            <div class="iq-header-title">
+                               <h4 class="card-title text-primary">Treść zgłoszenia</h4>
+                            </div>
+                            <p class="mb-0">
+                              <%= @case.description %>
+                            </p>
+                         </div>
+                      </div>
+                       <div class="col-sm-12">
+                          <div class="iq-card">
+                             <div class="iq-header-title">
+                                <h4 class="card-title text-primary">Pliki</h4>
+                             </div>
+                             <p class="mb-0">
+                               -
+                             </p>
+                          </div>
+                       </div>
+                        <div class="col-sm-12">
+                           <div class="iq-card">
+                              <div class="iq-header-title">
+                                 <h4 class="card-title text-primary">Odpowiedź lekarza</h4>
+                              </div>
+                              <div class="chat-content" style="height:unset; overflow-y:auto">
+                                <div class="chat chat-left">
+                                  <div class="chat-user">
+                                    <a class="avatar m-0">
+                                      <%= image_tag "user/12.jpg", class: 'avatar-35 rounded'%>
+                                    </a>
+                                      <span class="chat-time mt-1"><%= @case.doctor.first_name %><br/><%= @case.doctor.last_name %></span>
+                                  </div>
+                                  <div class="chat-detail">
+                                    <div class="chat-message">
+                                      <p><%= @case.solution %></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                           </div>
+                        </div>
+                   </div>
+                </div>
+             </div>
+             <div class="row" style="margin-bottom: 15px">
+               <div class="col-md-3">
+                <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill"><i class="ri-bill-fill"></i>Edytuj odpowiedź</button>
+               </div>
+               <div class="col-md-3">
+                 <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
+               </div>
+               <div class="col-md-3">
+                 <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill"><i class="ri-shield-cross-fill"></i>Do specjalisty</button>
+               </div>
+               <div class="col-md-3">
+                 <button type="button" class="btn btn-block mb-3 btn-success rounded-pill"><i class="ri-check-fill"></i>Zakończ</button>
+               </div>
+             </div>
+            <div class="iq-card iq-card-block iq-card-stretch">
+               <div class="iq-card-body pb-0">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <div class="iq-card">
+                           <div class="iq-header-title">
+                              <h4 class="card-title text-primary">Komentarze lekarzy dotyczące pacjenta</h4>
+                           </div>
+                           <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                           </div>
+                           <button type="submit" class="btn btn-primary">Dodaj komentarz</button>
+                           <div class="chat-content" style="height:unset; overflow-y:auto">
+                             <div class="chat chat-left">
+                               <div class="chat-user">
+                                 <a class="avatar m-0">
+                                   <%= image_tag "user/06.jpg", class: 'avatar-35 rounded'%>
+                                 </a>
+                                   <span class="chat-time mt-1">Jacek<br/>Kanas</span>
+                               </div>
+                               <div class="chat-detail">
+                                 <div class="chat-message">
+                                   <p>Pacjent mimo objawów wodonercza drugiej nerki (zdrowej, prawej) odmowił udania się na kontrolę scyntygraficzną</p>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+       </div>
+    </div>
+    <!-- Footer -->
+       <footer class="bg-white iq-footer">
+          <div class="container-fluid">
+             <div class="row">
+                <div class="col-lg-6">
+                   <ul class="list-inline mb-0">
+                      <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                      <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                   </ul>
+                </div>
+                <div class="col-lg-6 text-right">
+                   Copyright 2020 <a href="#">XRay</a> All Rights Reserved.
+                </div>
+             </div>
+          </div>
+       </footer>
+       <!-- Footer END -->
+ </div>
+</div>
+
+
+<!-- CALL MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="callModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Połączenie telefoniczne</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+          <h4><%= @case.patient.full_name %></h4>
+          <h3><%= @case.patient.phone %></h3>
+          <%= image_tag "web_call.png" %>
+          <hr>
+          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Zakończ</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
