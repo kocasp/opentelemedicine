@@ -140,7 +140,7 @@
                            <button type="button" class="btn btn-block mb-3 btn-primary rounded-pill" data-toggle="modal" data-target="#callModal"><i class="ri-phone-fill"></i>Zadzwoń</button>
                          </div>
                          <div class="col-md-4">
-                           <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill disabled"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
+                           <button type="button" class="btn btn-block mb-3 btn-dark rounded-pill" data-toggle="modal" data-target="#specializationModal"><i class="ri-shield-cross-fill"></i>Przypisz specjalistę</button>
                          </div>
                          <div class="col-md-4">
                            <%= form.submit 'Aktualizuj i zamknij zgłoszenie', class: "btn btn-block mb-3 btn-success rounded-pill" %>
@@ -225,6 +225,39 @@
           <p>Usługa połączenia VOIP jest czasowo niedostępna. Możesz skontaktować się z pacjentem jedynie dzwoniąc ze swojego telefonu.</p>
           <%= image_tag "web_call.png" %>
           <hr>
+          <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Wyjdź</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIALIZATION MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="specializationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Assign case specialization </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+          <h4><%= @case.patient.full_name %></h4>
+          <p>Request a specialist consult (Tagged patient questions will be prioritised on specialist's dashboard)</p>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option selected="" disabled="">Select specialist</option>
+            <option>Endocrynology</option>
+            <option>Dermatology</option>
+            <option>Diabetology</option>
+            <option>Psichiatry</option>
+            <option>Oncology</option>
+            <option>Nephrology</option>
+         </select>
+          <hr>
+          <button type="button" class="btn btn-lg btn-success">Zapisz</button>
           <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Wyjdź</button>
         </center>
       </div>
