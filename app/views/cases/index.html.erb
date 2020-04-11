@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cases</h1>
+<h1>Przypadki</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Solution</th>
-      <th>Specialist type</th>
+      <th>Opis</th>
+      <th>Zalecenia</th>
+      <th>Typ slecjalisty</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td><%= case.description %></td>
         <td><%= case.solution %></td>
         <td><%= case.specialist_type %></td>
-        <td><%= link_to 'Show', case %></td>
-        <td><%= link_to 'Edit', edit_case_path(case) %></td>
-        <td><%= link_to 'Destroy', case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Pokaż', case %></td>
+        <td><%= link_to 'Edytuj', edit_case_path(case) %></td>
+        <td><%= link_to 'Usuń', case, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Case', new_case_path %>
+<%= link_to 'Nowy przypadek', new_case_path %>

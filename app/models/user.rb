@@ -1,18 +1,15 @@
 class User < ApplicationRecord
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :cases, foreign_key: "patient_id"
 
-  scope :doctor, -> { where(user_type: 'doctor') }
-  scope :patient, -> { where(user_type: 'patient') }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
-  def active_case
-    cases.where(status: 'active').take
-  end
-
-  def has_active_case?
-    active_case.present?
-  end
+  enum type: [
+    :Doctor,
+    :Patient
+  ]
 
   def full_name
     "#{first_name} #{last_name}"

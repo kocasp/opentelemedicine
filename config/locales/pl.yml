@@ -1,0 +1,18 @@
+pl:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: jest już zajęty
+            password_confirmation:
+              confirmation: niepoprawne
+            first_name:
+              blank: nie może być puste
+            last_name:
+              blank: nie może być puste
+            dob:
+              blank: nie może być pusta
+            pwz_number:
+              blank: nie może być pusty

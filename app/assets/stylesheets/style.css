@@ -3789,3 +3789,8 @@
    -moz-box-shadow: 0px 0px 30px 0px rgba(8, 155, 171, 0.2);
    box-shadow: 0px 0px 30px 0px rgba(8, 155, 171, 0.2);
 }
+
+#error_explanation h2 {
+  font-size: 15px;
+  color: red;
+}

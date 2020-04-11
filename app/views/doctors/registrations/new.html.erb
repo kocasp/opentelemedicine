@@ -1,0 +1,83 @@
+<section class="sign-in-page">
+    <div class="container sign-in-page-bg mt-5 p-0">
+        <div class="row no-gutters justify-content-md-center">
+            <div class="col-md-6 position-relative">
+                <div class="sign-in-from">
+                    <h1 class="mb-0">Rejestracja lekarza</h1>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'mt-4'}) do |f| %>
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Email</label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-0", required: true %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Hasło</label>
+                            <%= f.password_field :password, class:"form-control mb-0", required: true %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Powtórz hasło</label>
+                            <%= f.password_field :password_confirmation, class:"form-control mb-0", required: true %>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Imię</label>
+                            <%= f.text_field :first_name, class:"form-control mb-0", required: true %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nazwisko</label>
+                            <%= f.text_field :last_name, class:"form-control mb-0", required: true %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Data urodzenia</label>
+                            <%= f.text_field :dob, class:"form-control mb-0", placeholder: "DD-MM-YYYY", required: true %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Płeć</label>
+                            <%= f.text_field :sex, class:"form-control mb-0", required: true, maxlength: 1, placeholder: "M/K" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Numer PWZ (Prawo do Wykonywania Zawodu)</label>
+                            <%= f.text_field :pwz_number, class:"form-control mb-0", required: true %>
+                        </div>
+                        <div class="d-inline-block w-100">
+                            <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
+                                <!-- <input type="checkbox" class="custom-control-input" id="customCheck1"> -->
+                                <!-- <label class="custom-control-label" for="customCheck1">Akceptuję <a href="/privacy_policy.docx">Regulamin</a></label> -->
+                                Klikając "Zarejestruj" akceptujesz <a href="/privacy_policy.docx">Regulamin</a>
+                            </div>
+                            <%= f.hidden_field :user_type, value: params['user_type'] %>
+                            <%= f.submit "Zarejestruj", class: "btn btn-primary float-right" %>
+                            <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
+                            <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Twoje Prawo do Wykonywania Zawodu nie może zostać zweryfikowane</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Twój Numer Prawa do Wykonywania Zawodu nie został pomyślnie zweryfikowany.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% if params["valid"] == "false" %>
+  <script type="text/javascript">
+      $(window).on('load',function(){
+          $('#exampleModalCenter').modal('show');
+      });
+  </script>
+<% end %>

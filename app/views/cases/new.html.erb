@@ -17,7 +17,7 @@
                              <%= image_tag "user/09.jpg", class: "rounded-circle img-fluid" %>
                           </div>
                           <div class="text-center mt-3 pl-3 pr-3">
-                             <h4><b>Konrad Strojny</b></h4>
+                             <h4><b><%= current_user.full_name %></b></h4>
                              <p>Pacjent</p>
                           </div>
                        </div>
@@ -30,7 +30,7 @@
              <div class="iq-card">
                    <div class="iq-card-header d-flex justify-content-between">
                       <div class="iq-header-title">
-                         <h4 class="card-title">Aktualne zgłoszenie <span class="badge  badge-primary">Oczekuje na opinie lekarską</span></h4>
+                         <h4 class="card-title">Aktualne zgłoszenie <span class="badge  badge-primary">Oczekuje na lekarza</span></h4>
                       </div>
                    </div>
                    <div class="iq-card-body">
@@ -39,14 +39,14 @@
                         </div>
                    </div>
               </div>
-              <%= link_to 'Anuluj zgłoszenie', @active_case, method: :delete, data: { confirm: 'Usunąć aktualne zgłoszenie?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
+              <%= link_to 'Wycofaj aktualne zgłoszenie', @active_case, method: :delete, data: { confirm: 'Czy na pewno chcesz wycować zgłoszenie?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
             <% else %>
                <%= form_with model: Case.new, local: true do |form| %>
                  <div class="field">
-                   <%= form.text_area :description, class: "form-control mb-3", placeholder: "Treść ogłoszenia" %>
+                   <%= form.text_area :description, class: "form-control mb-3", placeholder: "Opis dolegliwości / zapotrzebowania na leki" %>
                  </div>
                  <div class="actions">
-                   <%= form.submit "Dodaj zgłoszenie", class: "btn btn-block mb-3 btn-primary" %>
+                   <%= form.submit "Wyślij zgłoszenie", class: "btn btn-block mb-3 btn-primary" %>
                  </div>
                <% end %>
 
@@ -110,7 +110,7 @@
                   </ul>
                </div>
                <div class="col-lg-6 text-right">
-                  Copyright 2020 <a href="#">XRay</a> All Rights Reserved.
+                  Copyright 2020 <a href="#">WolontariatMedyczny</a>
                </div>
             </div>
          </div>
