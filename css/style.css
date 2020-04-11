@@ -7,7 +7,7 @@ Created:	    February 2019
 Last updated:	February 2019
 Template:	    MEDIKIT
 -------------------------------------------------------------------*/
-/*----------------------------------------------------------------- 
+/*-----------------------------------------------------------------
 [Table of Contents]
 
 1. IMPORTS
@@ -16,12 +16,12 @@ Template:	    MEDIKIT
 3. HEADER
 4. SECTION
 5. BUTTONS
-6. CUSTOM SECTIONS 
+6. CUSTOM SECTIONS
 	6.1 CUSTOM SECTION - INTRO
-	6.2 CUSTOM SECTION - ABOUT	
+	6.2 CUSTOM SECTION - ABOUT
 	6.3 CUSTOM SECTION - FEATURES
-	6.4 CUSTOM SECTION - TESTIMONIALS 
-	6.5 CUSTOM SECTION - PRICING 
+	6.4 CUSTOM SECTION - TESTIMONIALS
+	6.5 CUSTOM SECTION - PRICING
 	6.6 CUSTOM SECTION - SUPPORT
 	6.7 CUSTOM SECTION - CLIENTS
 	6.8 CUSTOM SECTION - LOGIN/SIGNUP MODAL
@@ -1121,7 +1121,7 @@ h6 {
       width: 50%;
       margin: auto;
       text-align: center;
-      padding: 0 0 80px 0; }
+      padding: 0 0 0 0; }
 
 /*===============================================*/
 /*  5. BUTTONS	 			 */
