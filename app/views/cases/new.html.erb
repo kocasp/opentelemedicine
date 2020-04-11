@@ -18,7 +18,7 @@
                           </div>
                           <div class="text-center mt-3 pl-3 pr-3">
                              <h4><b><%= current_user.full_name %></b></h4>
-                             <p>Pacjent</p>
+                             <p>Patient</p>
                           </div>
                        </div>
                     </div>
@@ -30,7 +30,7 @@
              <div class="iq-card">
                    <div class="iq-card-header d-flex justify-content-between">
                       <div class="iq-header-title">
-                         <h4 class="card-title">Aktualne zgłoszenie <span class="badge  badge-primary">Oczekuje na lekarza</span></h4>
+                         <h4 class="card-title">Current case <span class="badge  badge-primary">Waiting for doctor</span></h4>
                       </div>
                    </div>
                    <div class="iq-card-body">
@@ -39,14 +39,14 @@
                         </div>
                    </div>
               </div>
-              <%= link_to 'Wycofaj aktualne zgłoszenie', @active_case, method: :delete, data: { confirm: 'Czy na pewno chcesz wycować zgłoszenie?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
+              <%= link_to 'Cancel the case', @active_case, method: :delete, data: { confirm: 'Are you sure you want to cancel case submition?' }, class: "btn btn-block mb-3 btn-outline-danger" %>
             <% else %>
                <%= form_with model: Case.new, local: true do |form| %>
                  <div class="field">
-                   <%= form.text_area :description, class: "form-control mb-3", placeholder: "Opis dolegliwości / zapotrzebowania na leki" %>
+                   <%= form.text_area :description, class: "form-control mb-3", placeholder: "Helth problem description / prescription request" %>
                  </div>
                  <div class="actions">
-                   <%= form.submit "Wyślij zgłoszenie", class: "btn btn-block mb-3 btn-primary" %>
+                   <%= form.submit "Submit case", class: "btn btn-block mb-3 btn-primary" %>
                  </div>
                <% end %>
 
@@ -54,23 +54,23 @@
             <div class="iq-card">
                   <div class="iq-card-header d-flex justify-content-between">
                      <div class="iq-header-title">
-                        <h4 class="card-title">Informacje</h4>
+                        <h4 class="card-title">Informations</h4>
                      </div>
                   </div>
                   <div class="iq-card-body">
                      <div class="about-info m-0 p-0">
-                       <li>Oczekiwanie na opinie lekarską może wynieść do kilku dni.</li>
-                       <li>Lekarz wystawi opinie online lub będzie kontaktował się telefonicznie.</li>
-                       <li>Lekarz może wystawić e-receptę lub e-zwolnienie </li>
-                       <li>Lekarz może przydzielić zgłoszenie do lekarza-specjalisty</li>
-                       <li>Gdy lekarz wystawi ostateczną opinię, wysłane zostanie powiadomienie SMS, email a opinia pojawi się w historii zgłoszeń poniżej.</li>
+                       <li>Getting doctor assistance can take up to several days.</li>
+                       <li>Doctor will write you online or will call your personal phone number.</li>
+                       <li>Doctor can settle e-prescription or e-sick-leave </li>
+                       <li>Doctor can assign you to a specialist</li>
+                       <li>When doctor submits final solution, it will be sent to you via SMS and available in cases history below.</li>
                      </div>
                   </div>
              </div>
              <div class="iq-card iq-card-block">
                   <div class="iq-card-header d-flex justify-content-between">
                      <div class="iq-header-title">
-                        <h4 class="card-title">Historia zgłoszeń</h4>
+                        <h4 class="card-title">Cases history</h4>
                      </div>
                   </div>
                   <div class="iq-card-body">
@@ -110,7 +110,7 @@
                   </ul>
                </div>
                <div class="col-lg-6 text-right">
-                  Copyright 2020 <a href="#">WolontariatMedyczny</a>
+                  Copyright 2020 <a href="#">OpenTelemedicine.com</a>
                </div>
             </div>
          </div>

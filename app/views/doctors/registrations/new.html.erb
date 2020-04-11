@@ -3,7 +3,7 @@
         <div class="row no-gutters justify-content-md-center">
             <div class="col-md-6 position-relative">
                 <div class="sign-in-from">
-                    <h1 class="mb-0">Rejestracja lekarza</h1>
+                    <h1 class="mb-0">Physician Registration</h1>
                     <%= render "devise/shared/error_messages", resource: resource %>
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'mt-4'}) do |f| %>
                         <div class="form-group">
@@ -11,42 +11,42 @@
                             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Hasło</label>
+                            <label for="exampleInputPassword1">Password</label>
                             <%= f.password_field :password, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Powtórz hasło</label>
+                            <label for="exampleInputPassword1">Repeat password</label>
                             <%= f.password_field :password_confirmation, class:"form-control mb-0", required: true %>
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Imię</label>
+                            <label for="exampleInputEmail1">First Name</label>
                             <%= f.text_field :first_name, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nazwisko</label>
+                            <label for="exampleInputEmail1">Last Name</label>
                             <%= f.text_field :last_name, class:"form-control mb-0", required: true %>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Data urodzenia</label>
+                            <label for="exampleInputEmail1">DOB</label>
                             <%= f.text_field :dob, class:"form-control mb-0", placeholder: "DD-MM-YYYY", required: true %>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Płeć</label>
+                            <label for="exampleInputEmail1">Sex</label>
                             <%= f.text_field :sex, class:"form-control mb-0", required: true, maxlength: 1, placeholder: "M/K" %>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Numer PWZ (Prawo do Wykonywania Zawodu)</label>
-                            <%= f.text_field :pwz_number, class:"form-control mb-0", required: true %>
+                            <label for="exampleInputEmail1">Doctor document ID (not required)</label>
+                            <%= f.text_field :pwz_number, class:"form-control mb-0" %>
                         </div>
                         <div class="d-inline-block w-100">
                             <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
                                 <!-- <input type="checkbox" class="custom-control-input" id="customCheck1"> -->
                                 <!-- <label class="custom-control-label" for="customCheck1">Akceptuję <a href="/privacy_policy.docx">Regulamin</a></label> -->
-                                Klikając "Zarejestruj" akceptujesz <a href="/privacy_policy.docx">Regulamin</a>
+                                By clicking "Sign up" you accept <a href="/privacy_policy.docx">Terms of Service</a>
                             </div>
                             <%= f.hidden_field :user_type, value: params['user_type'] %>
-                            <%= f.submit "Zarejestruj", class: "btn btn-primary float-right" %>
+                            <%= f.submit "Sign up", class: "btn btn-primary float-right" %>
                             <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
                             <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Register</button> -->
                         </div>

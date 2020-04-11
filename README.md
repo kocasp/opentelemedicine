@@ -65,7 +65,7 @@ Currently there is only master branch that is deployed to production.
 Please create Pull Requests to the master branch directly
 
 ### Deployment
-Development branch is available under develop.wolontariatmedyczny.pl  
+Development branch is available under develop.OpenTelemedicine.com  
 Production deployment is triggered automatically after merge to master  
 
 __currently on both environments manual trigger of `rails db:migrate` is required__  
