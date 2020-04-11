@@ -18,8 +18,8 @@ end
 p "Creating doctor for testing ..."
 
 Doctor.create(
-  email: test_doctor_email,
-  password: test_doctor_password,
+  email: "doctor@email.com",
+  password: "password1",
   first_name: "James",
   last_name: "Smith",
   pwz_number: "6554327A",
@@ -68,8 +68,8 @@ end
 p "Creating patient for testing ..."
 
 Patient.create(
-  email: test_patient_email,
-  password: test_patient_password,
+  email: "patient@email.com",
+  password: "password1",
   first_name: "John",
   last_name: "Doe",
   pesel: "44051401458",
