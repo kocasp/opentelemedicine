@@ -1,4 +1,4 @@
-# IBLW Readme
+# OpenTelemedicine Readme
 Online Database of Volunteer Doctors  
 ![Imgur Image](https://i.imgur.com/FOTyMkI.png)  
 Konrad Strojny  
