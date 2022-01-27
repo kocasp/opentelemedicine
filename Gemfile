@@ -26,7 +26,7 @@ gem 'devise'
 gem 'devise-i18n'
 
 gem 'amcharts.rb'
-gem 'sidekiq', '< 6.0'
+gem 'sidekiq', '< 7.0'
 gem 'unicorn'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
